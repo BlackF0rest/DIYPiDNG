@@ -174,6 +174,7 @@ class RPICAM2DNG(CAM2DNG):
             s_bpp = 16
 
         bytes_per_row = int(width * (s_bpp / 8))
+        data = np.reshape(data, (height, stride))
         data = data[:height, :bytes_per_row]
 
         if s_bpp == 10:
