@@ -151,6 +151,7 @@ class RaspberryPiHqCamera(BaseCameraModel):
         if self.mode == 3:
             width = 4056
             height = 3040
+	    stride = 6112
         if self.mode == 4:
             width = 1012
             height = 760
@@ -159,6 +160,11 @@ class RaspberryPiHqCamera(BaseCameraModel):
             bpp = 12
         else: 
             bpp = 10
+	
+	self.fmt["size"] = (width, height)
+        self.fmt["bpp"] = bpp
+        self.fmt["stride"] = stride
+        self.fmt["format"] = "SBGGR12_CSI2P"
 
         profile_name = "Repro 2_5D no LUT - D65 is really 5960K"
         profile_embed = 3
