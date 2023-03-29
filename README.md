@@ -2,6 +2,8 @@ PiDNG
 =========
 ![](https://img.shields.io/badge/Version-4.0.9-green.svg)
 
+Fixed for IMX477 4056x3040
+
 Create Adobe DNG RAW files using Python.
 
 <!-- ![](docs/demo.jpg) -->
