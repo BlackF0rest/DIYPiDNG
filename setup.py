@@ -10,7 +10,7 @@ ljpeg92 = Extension('ljpegCompress', sources=[
 setup(
     name="diypidng",
     include_package_data=True,
-    version="5.1",
+    version="5.2",
     author="Bastian Kiefer",
     description="Python utility for creating Adobe DNG files from RAW image data.",
     long_description=long_description,
