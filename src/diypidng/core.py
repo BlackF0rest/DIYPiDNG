@@ -31,7 +31,7 @@ class DNGBASE:
 
     def __filter__(self, rawFrame: np.ndarray, filter : types.FunctionType) -> np.ndarray:
 
-        if not filter:
+        if filter is None:
             return rawFrame
 
         processed = filter(rawFrame)
@@ -75,10 +75,10 @@ class DNGBASE:
         # set up the FULL IFD
         mainIFD = dngIFD()
         mainTagStripOffset = dngTag(
-            Tag.StripOffsets, [0 for tile in dngTemplate.ImageDataStrips])
+            Tag.TileOffsets, [0 for tile in dngTemplate.ImageDataStrips])
         mainIFD.tags.append(mainTagStripOffset)
         mainIFD.tags.append(dngTag(Tag.NewSubfileType, [0]))
-        mainIFD.tags.append(dngTag(Tag.StripByteCounts, [len(
+        mainIFD.tags.append(dngTag(Tag.TileByteCounts, [len(
             tile) for tile in dngTemplate.ImageDataStrips]))
         mainIFD.tags.append(dngTag(Tag.Compression, [compression_scheme]))
         mainIFD.tags.append(dngTag(Tag.Software, "PiDNG"))
@@ -174,7 +174,7 @@ class RPICAM2DNG(CAM2DNG):
             s_bpp = 16
 
         bytes_per_row = int(width * (s_bpp / 8))
-        data = np.reshape(data, (height, stride))
+        data = np.reshape(data, (3040, 6112))
         data = data[:height, :bytes_per_row]
 
         if s_bpp == 10:

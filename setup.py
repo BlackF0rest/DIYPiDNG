@@ -5,17 +5,17 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 ljpeg92 = Extension('ljpegCompress', sources=[
-                    "src/pidng/bitunpack.c", "src/pidng/liblj92/lj92.c"],  extra_compile_args=['-std=gnu99'], extra_link_args=[])
+                    "src/diypidng/bitunpack.c", "src/diypidng/liblj92/lj92.c"],  extra_compile_args=['-std=gnu99'], extra_link_args=[])
 
 setup(
-    name="pidng",
+    name="diypidng",
     include_package_data=True,
-    version="4.0.9",
-    author="Csaba Nagy",
+    version="5.1",
+    author="Bastian Kiefer",
     description="Python utility for creating Adobe DNG files from RAW image data.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/schoolpost/PiDNG",
+    url="https://github.com/BlackF0rest/DIYPiDNG",
     install_requires=[
         'numpy',
     ],
@@ -28,6 +28,6 @@ setup(
     ],
     ext_modules=[ljpeg92],
     package_dir={"": "src"},
-    packages=find_packages(where="src"),
+    packages=find_packages(where="C:\Projects\DIYPiDNG\src"),
     python_requires='>=3.6',
 )

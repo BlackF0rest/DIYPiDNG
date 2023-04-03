@@ -133,6 +133,7 @@ class RaspberryPiHqCamera(BaseCameraModel):
         super().__init__()
         self.model = RaspberryPiCameraModels.Raspberry_Pi_High_Quality_Camera
         self.mode = sensor_mode
+        self.fmt = dict()
         self.orientation = orientation
         self.cfaPattern = cfaPattern
         self.__settings__()
@@ -151,7 +152,7 @@ class RaspberryPiHqCamera(BaseCameraModel):
         if self.mode == 3:
             width = 4056
             height = 3040
-	    stride = 6112
+            stride = 6112
         if self.mode == 4:
             width = 1012
             height = 760
@@ -160,8 +161,8 @@ class RaspberryPiHqCamera(BaseCameraModel):
             bpp = 12
         else: 
             bpp = 10
-	
-	self.fmt["size"] = (width, height)
+
+        self.fmt["size"] = (width, height)
         self.fmt["bpp"] = bpp
         self.fmt["stride"] = stride
         self.fmt["format"] = "SBGGR12_CSI2P"
