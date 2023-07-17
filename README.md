@@ -35,16 +35,7 @@ Requires:
 
 ### Install
 
-From PyPI:
-```
-python3 -mpip install PiDNG 
-```
-
-Latest version from GitHub:
-
-```
-python3 -mpip install  git+https://github.com/schoolpost/PiDNG.git
-```
+Please Install from this GitHub
 
 ***
 
